@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN的小站</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+        
+        .header-image {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-image: url('img.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            opacity: 0.8; /* 新增透明度设置 */
+        }
+        
+        .header-image h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 3em;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* 前三个按钮保持绿色 */
+        button:not(#toggleBtn) {
+            background-color: #4CAF50;
+        }
+
+        /* 第四个按钮设为红色 */
+        #toggleBtn {
+            background-color: #f44336;
+        }
+
+        #toggleBtn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-image">
+        <h1 id="title">TN的小站</h1>
+    </div>
+    
+    <div class="button-container">
+        <button onclick="window.open('https://space.bilibili.com/3537107261852228?spm_id_from=333.788.upinfo.head.click')">作者B站</button>
+        <button onclick="window.open('https://www.bilibili.com/video/BV1s64y1R7V2/?spm_id_from=333.337.search-card.all.click')">作者通道</button>
+        <button onclick="window.open('https://www.bilibili.com/3')">B站页面3</button>
+        <button id="toggleBtn">千万别点</button>
+    </div>
+
+    <script>
+        const title = document.getElementById('title');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const originalTitle = title.textContent;
+        let isOriginal = true;
+
+        toggleBtn.addEventListener('click', function() {
+            if(isOriginal) {
+                title.textContent = '然而这并没有什么用  O(∩_∩)O哈哈~';
+            } else {
+                title.textContent = originalTitle;
+            }
+            isOriginal = !isOriginal;
+        });
+
+        // 图片加载失败处理
+        const headerImage = document.querySelector('.header-image');
+        headerImage.style.backgroundImage = "url('img.jpg')";
+        headerImage.onerror = function() {
+            this.style.backgroundImage = "url('https://picsum.photos/1200/300')";
+        };
+    </script>
+</body>
+</html>
