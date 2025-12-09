@@ -1,0 +1,41 @@
+/* 自定义补充样式 */
+.quote-card {
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+    border-left-color: #764ba2;
+    transform: translateX(5px);
+}
+
+.member-avatar {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+    .scroll-text {
+        animation-duration: 15s;
+    }
+    
+    .chinese-font {
+        font-size: 1.1em;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    .gradient-bg {
+        background: #667eea !important;
+    }
+    
+    .hover-lift:hover {
+        transform: none !important;
+    }
+}
